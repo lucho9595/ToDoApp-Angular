@@ -1,0 +1,17 @@
+<div class="container">
+    <h1 class="title">ToDoApp</h1>
+
+    <div class="input">
+        <input [(ngModel)]="newTask" placeholder="Enter your task">
+        <button (click)="addTask(); buttonState = 'clicked'" class="btn" [@buttonClick]="buttonState">+</button>
+    </div>
+
+    <div class="all" *ngFor="let task of tasks">
+        <p>{{ task }}</p>
+        <input [(ngModel)]="updatedTasks[task]" placeholder="Edit Task">
+        <button (click)="editTask(task, updatedTasks[task]); buttonState = 'clicked'" class="btn"
+            [@buttonClick]="buttonState">Edit Task</button>
+        <button (click)="removeTask(task) ;buttonState = 'clicked'" class="btn-danger"
+            [@buttonClick]="buttonState">Delete Task</button>
+    </div>
+</div>
